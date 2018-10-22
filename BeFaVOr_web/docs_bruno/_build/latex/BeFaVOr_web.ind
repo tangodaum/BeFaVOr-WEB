@@ -1,0 +1,50 @@
+\begin{theindex}
+\def\bigletter#1{{\Large\sffamily#1}\nopagebreak\vspace{1mm}}
+
+  \bigletter B
+  \item BeFaVOr\_web (module), \hyperpage{9}
+
+  \indexspace
+  \bigletter C
+  \item create\_list\_files() (in module BeFaVOr\_web), \hyperpage{9}
+  \item create\_txt\_file() (in module BeFaVOr\_web), \hyperpage{9}
+
+  \indexspace
+  \bigletter F
+  \item find\_regular\_expression() (in module BeFaVOr\_web), \hyperpage{9}
+
+  \indexspace
+  \bigletter G
+  \item get\_attribute() (in module BeFaVOr\_web), \hyperpage{9}
+  \item getTitle() (in module BeFaVOr\_web), \hyperpage{9}
+
+  \indexspace
+  \bigletter I
+  \item iue\_submission() (in module BeFaVOr\_web), \hyperpage{9}
+
+  \indexspace
+  \bigletter P
+  \item plot\_gal() (in module BeFaVOr\_web), \hyperpage{10}
+
+  \indexspace
+  \bigletter R
+  \item read\_simbad\_coodr() (in module BeFaVOr\_web), \hyperpage{10}
+  \item read\_simbad\_data() (in module BeFaVOr\_web), \hyperpage{10}
+  \item read\_txt() (in module BeFaVOr\_web), \hyperpage{10}
+  \item retrieve\_ebmv\_value() (in module BeFaVOr\_web), \hyperpage{10}
+
+  \indexspace
+  \bigletter S
+  \item selecting\_data() (in module BeFaVOr\_web), \hyperpage{10}
+  \item show\_page\_code() (in module BeFaVOr\_web), \hyperpage{10}
+
+  \indexspace
+  \bigletter T
+  \item there\_is\_a\_title() (in module BeFaVOr\_web), \hyperpage{10}
+
+  \indexspace
+  \bigletter U
+  \item untar() (in module BeFaVOr\_web), \hyperpage{11}
+  \item unzip() (in module BeFaVOr\_web), \hyperpage{11}
+
+\end{theindex}

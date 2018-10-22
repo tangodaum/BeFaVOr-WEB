@@ -1,0 +1,167 @@
+/usr/local/lib/python3.4/dist-packages/bs4/__init__.py:166: UserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system ("lxml"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
+
+To get rid of this warning, change this:
+
+ BeautifulSoup([your markup])
+
+to this:
+
+ BeautifulSoup([your markup], "lxml")
+
+  markup_type=markup_type))
+Out[3]: 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>INES Archive Search - Version 3.0</title>
+<script type="text/javascript">//<![CDATA[
+
+function markAll( spType ) {
+    if(  document.images  ) {
+          var  markFile  = eval( "document.retrievalForm.mark" + spType );
+          var  fileType  = "file" + spType;
+          for( var i=0; i<document.retrievalForm.elements.length; i++ ) {
+               var curElement = document.retrievalForm.elements[i];
+               if( curElement.name == fileType ) 
+                  curElement.checked = markFile.checked; 
+         } 
+    }    else    { 
+         alert("Error: requires Netscape 4.0+, Internet Explorer 4.0+ or similar");
+    }
+}
+
+function resetWavelengths() {
+    if(  document.images  ) {
+         for( var i=0; i<document.retrievalForm.elements.length; i++ ) {
+              var curElement = document.retrievalForm.elements[i];
+              if( curElement.type == 'text' )
+                  curElement.value = curElement.defaultValue;
+         }
+
+    }    else    {
+         alert("Error: requires Netscape 4.0+, Internet Explorer 4.0+ or similar");
+    }
+}
+
+function sendForm( dataServer ) {
+    if(  document.images  ) {
+         document.retrievalForm.action = dataServer;
+    }    else    {
+         alert("Error: requires Netscape 4.0+, Internet Explorer 4.0+ or similar");
+    }
+}
+
+//]]></script>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body bgcolor="ffffff" text="000000">
+<a href="/ines/INESCredits.html"><img alt="[INES]" border="0" src="/ines/images/ines.gif"/></a>
+<p><font size="5">Archive Search</font>
+</p><form action="/cgi-ines/IUEdbsMY" enctype="application/x-www-form-urlencoded" method="post">
+<table border="0" cellpadding="3" cellspacing="5">
+<tr><td><a href="/ines/InForm.html#name">Object ID:</a></td>
+<td><input name="object" size="25" type="text"/>             <input name=".submit" type="submit" value="Submit Query"/>    
+<input name=".reset" type="reset" value="Reset Form"/></td>
+</tr><tr><td nowrap=""><a href="/ines/InForm.html#pos">Position,  </a><a href="/ines/InForm.html#ra">RA:</a></td>
+<td nowrap=""><input name="ra_hh" size="2" type="text"/>:<input name="ra_mm" size="2" type="text"/>:<input name="ra_ss" size="4" type="text"/> <a href="/ines/InForm.html#dec">Dec:</a>
+<input name="de_dd" size="3" type="text"/>:<input name="de_mm" size="2" type="text"/>:<input name="de_ss" size="2" type="text"/> <a href="/ines/InForm.html#radius">Radius:</a>
+<input name="rd_dd" size="2" type="text" value="00"/>:<input name="rd_mm" size="2" type="text" value="05"/>:<input name="rd_ss" size="2" type="text" value="00"/> <a href="/ines/InForm.html#equinox">Equinox:</a><select name="epoch">
+<option selected="selected" value="1950.0">B1950</option>
+<option value="2000.0">J2000</option>
+</select></td>
+</tr><tr><td><a href="/ines/InForm.html#class">Object Class:</a></td>
+<td><input name="class" size="2" type="text"/></td>
+</tr><tr><td><a href="/ines/InForm.html#obsdates">Obs Date:</a></td>
+<td><input name="oday1" size="2" type="text"/> <select name="omon1">
+<option value="Jan">Jan</option>
+<option value="Feb">Feb</option>
+<option value="Mar">Mar</option>
+<option value="Apr">Apr</option>
+<option value="May">May</option>
+<option value="Jun">Jun</option>
+<option value="Jul">Jul</option>
+<option value="Aug">Aug</option>
+<option value="Sep">Sep</option>
+<option value="Oct">Oct</option>
+<option value="Nov">Nov</option>
+<option value="Dec">Dec</option>
+</select> 19<input name="oyr1" size="2" type="text"/>  to: <input name="oday2" size="2" type="text"/> <select name="omon2">
+<option value="Jan">Jan</option>
+<option value="Feb">Feb</option>
+<option value="Mar">Mar</option>
+<option value="Apr">Apr</option>
+<option value="May">May</option>
+<option value="Jun">Jun</option>
+<option value="Jul">Jul</option>
+<option value="Aug">Aug</option>
+<option value="Sep">Sep</option>
+<option value="Oct">Oct</option>
+<option value="Nov">Nov</option>
+<option value="Dec">Dec</option>
+</select> 19<input name="oyr2" size="2" type="text"/></td></tr><tr><td>
+<table border="0" cellpadding="0" cellspacing="0"><tr><td align="left"><a href="/ines/InForm.html#camera">Camera:</a></td></tr></table></td>
+<td><table border="0" cellpadding="0" cellspacing="0" width="50%">
+<td align="left" width="25%"><label><input checked="checked" name="cam" type="checkbox" value="LWP"/> LWP</label></td><td align="left" width="25%"><label><input checked="checked" name="cam" type="checkbox" value="LWR"/> LWR</label></td><td align="left" width="25%"><label><input checked="checked" name="cam" type="checkbox" value="SWP"/> SWP</label></td><td align="left" width="25%"> </td></table></td>
+</tr><tr><td><table border="0" cellpadding="0" cellspacing="0"><tr><td align="left"><a href="/ines/InForm.html#dispersion">Dispersion:</a></td></tr></table></td>
+<td><table border="0" cellpadding="0" cellspacing="0" width="50%"><td align="left" width="25%"><label><input checked="checked" name="dis" type="checkbox" value="Low"/> Low</label></td><td align="left" width="25%"><label><input checked="checked" name="dis" type="checkbox" value="High"/> High</label></td><td align="left" width="25%"><label><input checked="checked" name="dis" type="checkbox" value="NA"/> N/A</label></td><td align="left" width="25%"> </td></table></td>
+</tr><tr><td><table border="0" cellpadding="0" cellspacing="0"><tr><td align="left"><a href="/ines/InForm.html#aperture">Aperture:</a></td></tr></table></td>
+<td><table border="0" cellpadding="0" cellspacing="0" width="50%"><td align="left" width="25%"><label><input checked="checked" name="ape" type="checkbox" value="Large"/> Large</label></td><td align="left" width="25%"><label><input checked="checked" name="ape" type="checkbox" value="Small"/> Small</label></td><td align="left" width="25%"><label><input checked="checked" name="ape" type="checkbox" value="NA"/> N/A</label></td><td align="left" width="25%"> </td></table></td>
+</tr><tr><td valign="top"><table border="0" cellpadding="0" cellspacing="0"><tr><td align="left" valign="top"><a href="/ines/InForm.html#images">Image List:</a></td></tr></table></td>
+<td><table border="0" cellpadding="0" cellspacing="0"><tr><td><textarea cols="11" name="images" rows="3" wrap="virtual"></textarea></td><td align="center" valign="top" width="30%"><a href="/ines/InForm.html#objects">Object List:</a></td><td><textarea cols="18" name="objects" rows="3" wrap="virtual"></textarea></td></tr></table></td>
+</tr><tr><td valign="TOP"><table cellpadding="0" cellspacing="0"><tr><td align="left" valign="center"><a href="/ines/InForm.html#output">Select Output:</a></td></tr></table></td>
+<td><table border="1" cellpadding="0" cellspacing="0" width="92%"><tr align="center" bgcolor="#f6f8bc" valign="top"><td>
+<table border="0" cellpadding="0" cellspacing="0" valign="top" width="100%">
+<tr align="CENTER" valign="top"><td align="center" width="20%"><a href="/ines/InForm.html#fields">Fields</a></td>
+<td align="center" width="20%"><a href="/ines/InForm.html#format">Format</a></td>
+<td align="center" width="28%"><a href="/ines/InForm.html#order">Order By</a> </td>
+<td align="center" width="18%"> <a href="/ines/InForm.html#show">Show</a></td>
+<td align="center" width="14%"> <a href="/ines/InForm.html#page">Page#</a></td></tr>
+</table></td>
+</tr><tr><td><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr align="left">
+<td align="center" width="20%"><select name="fields">
+<option value="General">General</option>
+<option value="Observation">Observation</option>
+<option value="Variability">Variability</option>
+<option value="Pointing">Pointing</option>
+</select></td>
+<td align="center" width="20%"><select name="out">
+<option selected="selected" value="HTML">HTML</option>
+<option value="ASCII">ASCII</option>
+<option value="CSV">CSV</option>
+<option value="TSV">TSV</option>
+</select></td>
+<td align="center" width="28%"><select name="sortby">
+<option selected="selected" value="dateobs,timeobs">Date</option>
+<option value="ra,de">Coordinates</option>
+<option value="camera,image">Image ID</option>
+<option value="iueclas">IUE Class</option>
+<option value="object">Object ID</option>
+</select></td>
+<td align="center" width="18%"><select name="limit">
+<option selected="selected" value="50">50</option>
+<option value="100">100</option>
+<option value="250">250</option>
+<option value="500">500</option>
+<option value="all">all</option>
+</select></td>
+<td align="center" valign="center" width="14%"><input name="desired_page" size="3" type="text" value="1"/></td></tr></table></td></tr></table></td>
+</tr><tr><td> </td>
+<td><input name=".submit" type="submit" value="Submit Query"/>
+<a href="/ines/InForm.html">Form Help</a> 
+<input name=".reset" type="reset" value="Reset Form"/>   
+<label><input name="show_sql" type="checkbox" value="on"/></label><a href="/ines/InForm.html#sql">Show SQL</a></td>
+</tr><tr><td nowrap="" valign="TOP"><a href="/ines/InForm.html#pcentre">Principal
+ 	  Centre<br/>and Mirror Site:</a></td>
+<td><table border="0" cellpadding="5" cellspacing="1" width="92%"><tr bgcolor="#e7e7e7"><td align="center" nowrap="" width="34%">  <label><input checked="checked" name="PCservers" type="radio" value="sdc.cab.inta-csic.es"/></label>VILSPA/LAEFF<br/>Principal Centre</td><td align="center" nowrap="" width="33%">  <label><input name="PCservers" type="radio" value="ines.hia.nrc.ca"/></label>CADC<br/>Principal Centre Mirror</td><td align="center" nowrap="" width="33%">  <label><input name="PCservers" type="radio" value="iuepcs.nao.ac.jp"/></label>NAOJ<br/>Principal Centre Mirror</td></tr></table></td></tr></table><div><input name=".cgifields" type="hidden" value="dis"/><input name=".cgifields" type="hidden" value="show_sql"/><input name=".cgifields" type="hidden" value="ape"/><input name=".cgifields" type="hidden" value="cam"/><input name=".cgifields" type="hidden" value="PCservers"/></div></form>
+<!-- *** PAGE BOTTOM *** -->
+<p></p><hr/>
+<p><a href="/ines/">Home</a> |
+<a href="mailto:esm@cab.inta-csic.es">HelpDesk</a> |
+<a href="/ines/Overview.html">Overview</a> |
+<a href="http://www.laeff.cab.inta-csic.es/">LAEFF</a>
+</p><p></p><address>
+<a href="/ines/Version.html">Version 3.0</a> - June 2000
+</address>
+</body>
+</html>
+

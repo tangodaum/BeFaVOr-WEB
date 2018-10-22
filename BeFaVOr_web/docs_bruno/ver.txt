@@ -1,0 +1,96 @@
+PLANO PARA O RELATÓRIO
+
+0) Documentar usando Sphinx
+
+. BeFaVOr_web.py
+. take_vizier_data.py
+. Usar o arquivo ~/docs/BeFAVOr_web.rst
+
+. Para criar a documentação:
+   > instalar Sphinx
+   > Na pasta BeFaVOr_web/docs dê o comando: sphinx-quickstart
+      > Root path for the documentation [.]  (ENTER)
+      > Separate source and build directories (y/n) [n]: ENTER
+      > Name prefix for templates and static dir [_]: ENTER
+      > Project name: BeFaVOr_web
+      > author name(s): Artur Alegre, Alex C. Carciofi e Bruno C. Mota
+      > Project version: 1.0
+      > Project release [1.0.0]: ENTER
+      > Project language [en]: ENTER
+      > Source file suffix [.rst]: ENTER
+      > Name of your master document (without suffix) [index]: ENTER
+      > Do you want to use the epub builder (y/n) [n]: ENTER
+      > autodoc: automatically insert docstrings from modules (y/n) [n]: ENTER
+      > doctest: automatically test code snippets in doctest blocks (y/n) [n]: ENTER
+      > Do link between Sphinx documentation of different projects? ENTER
+      > write "todo" entries that can be shown or hidden on build (y/n): ENTER
+      > coverage: checks for documentation coverage (y/n) [n]: ENTER
+      > imgmath: include math, rendered as PNG or SVG images (y/n) [n]: y
+      > mathjax: include math, rendered in the browser by MathJax (y/n) [n]: ENTER
+      > conditional inclusion of content based on config values (y/n) : y
+      > Include links to the source code of documented Python object: ENTER
+      > file to publish the document on GitHub: n
+      > Create Makefile? (y/n) [y]: ENTER
+      > Create Windows command file? (y/n) [y]: n
+
+   Install the TexLive base 
+   sudo apt-get install texlive-latex-base
+   sudo apt-get install texlive-fonts-recommended
+   sudo apt-get install texlive-fonts-extra
+   sudo apt-get install texlive-latex-extra
+
+
+   > Mude a linha 22 do arquivo ~/docs/conf.py
+   > Após isso, siga o exemplo do arquivo ~/docs/index.rst
+   > Mude apenas o texto e as figuras, já está tudo funcionando.
+   > As figuras devem ser colocadas na pasta ~/docs/figures/
+   > Após terminá-lo, entre no terminal e vá até a pasta /docs
+   > Na pasta ~/docs/, digite os comandos: 
+   > make clean
+   > make latexpdf
+   > Se tudo der certo, ele irá criar duas pastas dentro da pasta ~/docs/_build/.
+   > Pasta Latex: possui a documentação
+   > Pasta doctrees: o site da documentação
+   > Acabou ... :-)
+
+
+#-----------------------------------------------------------------------
+PLANO PARA O SITE
+
+0) EXEMPLO DE SITE
+
+http://www.astro.ulb.ac.be/~siess/pmwiki/pmwiki.php/WWWTools/HRDfind
+
+
+1) INFORMAÇÕES PARA DESENVOLVEDORES DE FERRAMENTAS VO:
+
+http://www.ivoa.net/deployers/index.html
+
+
+2) SERVIDOR USP (DEVEMOS ENTENDER COMO VAMOS INSTALAR AS FERRAMENTAS NESTE SERVIDOR)
+
+https://nuvem.uspdigital.usp.br/client/
+
+
+3) ESTA FERRAMENTA FOI A QUE O ALEX COMENTOU (NÃO SEI SE PRECISAMOS UTILIZÁ-LA)
+
+https://www.joomla.org/
+
+
+4) ALGUNS EXEMPLOS DE COMO RODAR SCRIPTS EM SERVIDORES
+
+https://autofei.wordpress.com/2010/06/13/add-python-support-to-apache2-in-ubuntu-using-mod_python/
+
+https://docs.python.org/2/howto/webservers.html
+
+https://www.vivaolinux.com.br/topico/Python/Como-rodar-python-no-browser
+
+https://azure.microsoft.com/pt-br/documentation/articles/machine-learning-execute-python-scripts/
+
+https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
+
+http://webpy.org/docs/0.3/tutorial
+
+http://code.tutsplus.com/articles/python-from-scratch-create-a-dynamic-website--net-22787
+
+https://www.djangoproject.com/

@@ -1,0 +1,670 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>INES Archive Search - Version 3.0</title>
+<script type="text/javascript">//<![CDATA[
+
+function markAll( spType ) {
+    if(  document.images  ) {
+          var  markFile  = eval( "document.retrievalForm.mark" + spType );
+          var  fileType  = "file" + spType;
+          for( var i=0; i<document.retrievalForm.elements.length; i++ ) {
+               var curElement = document.retrievalForm.elements[i];
+               if( curElement.name == fileType ) 
+                  curElement.checked = markFile.checked; 
+         } 
+    }    else    { 
+         alert("Error: requires Netscape 4.0+, Internet Explorer 4.0+ or similar");
+    }
+}
+
+function resetWavelengths() {
+    if(  document.images  ) {
+         for( var i=0; i<document.retrievalForm.elements.length; i++ ) {
+              var curElement = document.retrievalForm.elements[i];
+              if( curElement.type == 'text' )
+                  curElement.value = curElement.defaultValue;
+         }
+
+    }    else    {
+         alert("Error: requires Netscape 4.0+, Internet Explorer 4.0+ or similar");
+    }
+}
+
+function sendForm( dataServer ) {
+    if(  document.images  ) {
+         document.retrievalForm.action = dataServer;
+    }    else    {
+         alert("Error: requires Netscape 4.0+, Internet Explorer 4.0+ or similar");
+    }
+}
+
+//]]></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body bgcolor="ffffff" text="000000">
+
+<A HREF="/ines/INESCredits.html"><IMG BORDER=0 ALT="[INES]" SRC="/ines/images/ines.gif"></A>
+
+<p><font size="5">Archive Search</font>
+
+<P><A HREF=/cgi-ines/resolve?names=ZETTAU>Resolved names: 1</a></P>
+<form method="post" action="/cgi-ines/IUEdbsMY" enctype="application/x-www-form-urlencoded" name="retrievalForm">
+
+<table cellspacing="1" cellpadding="2" border="0">
+
+<tr><td colspan="5">&nbsp;</td></tr>
+
+
+<tr bgcolor="#e7e7e7"><td align="center">
+<input type="submit" name=".submitPC" value="Retrieve Marked Data" onclick="sendForm('/ines/jsp/MultiDownload.jsp')" /></td>
+<td nowrap align="left"><i>&nbsp;Mark:</i><label><input type="checkbox" name="markHigh" value="on" onclick="markAll('High')" />High</label></td>
+<td nowrap align="left"><i>&nbsp;Mark:</i><label><input type="checkbox" name="markSILO" value="on" onclick="markAll('SILO')" />SILO</label></td>
+<td nowrap align="center"><A HREF="/ines/Retrieve.html#format">Retrieval format</A>:<select name="optionPC" >
+<option selected="selected" value="tar.gz">tar.gz</option>
+<option value="zip">zip</option>
+</select></td>
+<td nowrap valign="center" align="center"></td>
+<td align="center" bgcolor="#ffffff">&nbsp;<u>Principal Centre</u></td></tr>
+<tr><td colspan="5">&nbsp;</td>
+<tr><td align="center">
+<input type="submit" name=".submitNH" value="Retrieve Marked Data" onclick="sendForm('/ines/jsp/MultiDownload.jsp')" /></td>
+<td nowrap align="left"><i>&nbsp;Mark:</i><label><input type="checkbox" name="markRebin" value="on" onclick="markAll('Rebin')" />Rebin</label></td>
+<td nowrap align="left"><i>&nbsp;Mark:</i><label><input type="checkbox" name="markLow" value="on" onclick="markAll('Low')" />Low</label></td>
+<td nowrap align="center"><A HREF="/ines/Retrieve.html#format">Retrieval format</A>:<select name="optionNH" >
+<option selected="selected" value="tar.gz">tar.gz</option>
+<option value="zip">zip</option>
+</select></td>
+<td nowrap align="center"><table cellspacing="0" cellpadding="0" border="1">
+<tr bgcolor="#f6f8bc"><td nowrap align="center">&nbsp;Found 66 records,&nbsp;displaying page&nbsp;1 of &nbsp;2&nbsp;</td></table></td>
+<td align="center">&nbsp;<u>National Host</u></td></tr>
+<tr><td colspan="5">&nbsp;</td></tr></table>
+
+
+<table cellpadding="2" cellspacing="0" border="1">
+
+<TR BGCOLOR=#F6F8BC>
+<TH><A HREF="/ines/OutForm.html#camera">Camera</A></TH>
+<TH><A HREF="/ines/OutForm.html#image">Image</A></TH>
+<TH><A HREF="/ines/OutForm.html#disp">Disp</A></TH>
+<TH><A HREF="/ines/OutForm.html#aperture">Aper</A></TH>
+<TH><A HREF="/ines/OutForm.html#object">Object</A></TH>
+<TH><A HREF="/ines/OutForm.html#ora">RA(1950)</A></TH>
+<TH><A HREF="/ines/OutForm.html#odec">Dec(1950)</A></TH>
+<TH><A HREF="/ines/OutForm.html#obsdate">ObsDate</A></TH>
+<TH><A HREF="/ines/OutForm.html#obstime">ObsTime</A></TH>
+<TH><A HREF="/ines/OutForm.html#exptime">ExpTime</A></TH>
+<TH><A HREF="/ines/OutForm.html#class">Class</A></TH>
+<TH><A HREF="/ines/OutForm.html#ecc">ECC</A></TH>
+<TH><A HREF="/ines/OutForm.html#pubs">Pubs</A></TH>
+<TH><A HREF="/ines/OutForm.html#plot">Plot</A></TH>
+<TH><A HREF="/ines/OutForm.html#header">Header</A></TH>
+<TH><A HREF="/ines/Retrieve.html#single">Fetch</A></TH>
+<TH><A HREF="/ines/Retrieve.html#multiple">Mark</A></TH>
+<TH><A HREF="/ines/Retrieve.html#single">Fetch</A></TH>
+<TH><A HREF="/ines/Retrieve.html#multiple">Mark</A></TH></TR>
+
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>02356</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1978-08-21</TD><TD NOWRAP>21:09:53</TD><TD NOWRAP>34.686</TD><TD NOWRAP>26</TD><TD NOWRAP>50</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=SWP&image=02356"> 3 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP02356RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP02356RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP02356RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP02356RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP02356HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP02356HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWR</TD><TD NOWRAP>02139</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1978-08-21</TD><TD NOWRAP>22:09:21</TD><TD NOWRAP>59.676</TD><TD NOWRAP>26</TD><TD NOWRAP>70</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=LWR&image=02139"> 4 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWR02139RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWR02139RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR02139RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWR02139RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR02139HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWR02139HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>02357</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1978-08-21</TD><TD NOWRAP>22:16:13</TD><TD NOWRAP>49.841</TD><TD NOWRAP>26</TD><TD NOWRAP>70</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=SWP&image=02357"> 3 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP02357RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP02357RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP02357RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP02357RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP02357HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP02357HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWR</TD><TD NOWRAP>02140</TD><TD NOWRAP>Low</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1978-08-21</TD><TD NOWRAP>23:38:12</TD><TD NOWRAP>0.693</TD><TD NOWRAP>26</TD><TD NOWRAP>70</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=LWR&image=02140"> 1 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?filename=LWR02140LS.FITS">Low</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWR02140LS.FITS">Low</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR02140LS.FITS">Low</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileLow" value="LWR02140LS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR02140.SILO&source=PC">SILO</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileSILO" value="LWR02140LS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWR</TD><TD NOWRAP>02140</TD><TD NOWRAP>Low</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1978-08-21</TD><TD NOWRAP>23:43:20</TD><TD NOWRAP>0.693</TD><TD NOWRAP>26</TD><TD NOWRAP>70</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=LWR&image=02140"> 1 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?filename=LWR02140LL.FITS">Low</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWR02140LL.FITS">Low</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR02140LL.FITS">Low</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileLow" value="LWR02140LL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR02140.SILO&source=PC">SILO</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileSILO" value="LWR02140LL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>02387</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1978-08-24</TD><TD NOWRAP>12:58:00</TD><TD NOWRAP>39.601</TD><TD NOWRAP>20</TD><TD NOWRAP>n/a</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=SWP&image=02387"> 1 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP02387RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP02387RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP02387RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP02387RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP02387HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP02387HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>02682</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1978-09-18</TD><TD NOWRAP>14:42:00</TD><TD NOWRAP>35.505</TD><TD NOWRAP>26</TD><TD NOWRAP>n/a</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=SWP&image=02682"> 1 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP02682RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP02682RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP02682RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP02682RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP02682HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP02682HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>03138</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1978-10-25</TD><TD NOWRAP>11:48:08</TD><TD NOWRAP>39.601</TD><TD NOWRAP>26</TD><TD NOWRAP>n/a</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=SWP&image=03138"> 1 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP03138RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP03138RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP03138RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP03138RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP03138HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP03138HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWR</TD><TD NOWRAP>02707</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1978-10-25</TD><TD NOWRAP>11:51:43</TD><TD NOWRAP>19.535</TD><TD NOWRAP>26</TD><TD NOWRAP>n/a</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=LWR&image=02707"> 1 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWR02707RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWR02707RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR02707RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWR02707RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR02707HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWR02707HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>03506</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1978-12-01</TD><TD NOWRAP>16:10:06</TD><TD NOWRAP>39.601</TD><TD NOWRAP>26</TD><TD NOWRAP>50</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=SWP&image=03506"> 3 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP03506RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP03506RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP03506RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP03506RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP03506HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP03506HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWR</TD><TD NOWRAP>03084</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1978-12-01</TD><TD NOWRAP>16:15:00</TD><TD NOWRAP>49.845</TD><TD NOWRAP>26</TD><TD NOWRAP>70</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=LWR&image=03084"> 3 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWR03084RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWR03084RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR03084RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWR03084RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR03084HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWR03084HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWR</TD><TD NOWRAP>03085</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1978-12-01</TD><TD NOWRAP>17:35:38</TD><TD NOWRAP>29.775</TD><TD NOWRAP>26</TD><TD NOWRAP>50</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=LWR&image=03085"> 3 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWR03085RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWR03085RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR03085RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWR03085RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR03085HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWR03085HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>06930</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1979-10-20</TD><TD NOWRAP>15:30:10</TD><TD NOWRAP>39.601</TD><TD NOWRAP>60</TD><TD NOWRAP>501</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=SWP&image=06930"> 4 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP06930RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP06930RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP06930RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP06930RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP06930HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP06930HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWR</TD><TD NOWRAP>05888</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1979-10-20</TD><TD NOWRAP>15:54:20</TD><TD NOWRAP>49.845</TD><TD NOWRAP>60</TD><TD NOWRAP>702</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=LWR&image=05888"> 3 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWR05888RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWR05888RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR05888RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWR05888RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR05888HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWR05888HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>17842</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1982-09-02</TD><TD NOWRAP>23:12:17</TD><TD NOWRAP>39.601</TD><TD NOWRAP>26</TD><TD NOWRAP>611</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=SWP&image=17842"> 2 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP17842RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP17842RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP17842RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP17842RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP17842HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP17842HS" /></label></TD></TR>
+
+<TR BGCOLOR=#F6F8BC>
+<TH><A HREF="/ines/OutForm.html#camera">Camera</A></TH>
+<TH><A HREF="/ines/OutForm.html#image">Image</A></TH>
+<TH><A HREF="/ines/OutForm.html#disp">Disp</A></TH>
+<TH><A HREF="/ines/OutForm.html#aperture">Aper</A></TH>
+<TH><A HREF="/ines/OutForm.html#object">Object</A></TH>
+<TH><A HREF="/ines/OutForm.html#ora">RA(1950)</A></TH>
+<TH><A HREF="/ines/OutForm.html#odec">Dec(1950)</A></TH>
+<TH><A HREF="/ines/OutForm.html#obsdate">ObsDate</A></TH>
+<TH><A HREF="/ines/OutForm.html#obstime">ObsTime</A></TH>
+<TH><A HREF="/ines/OutForm.html#exptime">ExpTime</A></TH>
+<TH><A HREF="/ines/OutForm.html#class">Class</A></TH>
+<TH><A HREF="/ines/OutForm.html#ecc">ECC</A></TH>
+<TH><A HREF="/ines/OutForm.html#pubs">Pubs</A></TH>
+<TH><A HREF="/ines/OutForm.html#plot">Plot</A></TH>
+<TH><A HREF="/ines/OutForm.html#header">Header</A></TH>
+<TH><A HREF="/ines/Retrieve.html#single">Fetch</A></TH>
+<TH><A HREF="/ines/Retrieve.html#multiple">Mark</A></TH>
+<TH><A HREF="/ines/Retrieve.html#single">Fetch</A></TH>
+<TH><A HREF="/ines/Retrieve.html#multiple">Mark</A></TH></TR>
+
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWR</TD><TD NOWRAP>14078</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1982-09-02</TD><TD NOWRAP>23:15:55</TD><TD NOWRAP>49.845</TD><TD NOWRAP>26</TD><TD NOWRAP>712</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=LWR&image=14078"> 2 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWR14078RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWR14078RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR14078RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWR14078RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR14078HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWR14078HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>18114</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1982-09-26</TD><TD NOWRAP>09:51:34</TD><TD NOWRAP>39.601</TD><TD NOWRAP>60</TD><TD NOWRAP>n/a</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=SWP&image=18114"> 1 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP18114RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP18114RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP18114RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP18114RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP18114HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP18114HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWR</TD><TD NOWRAP>14266</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1982-09-26</TD><TD NOWRAP>09:55:49</TD><TD NOWRAP>39.605</TD><TD NOWRAP>60</TD><TD NOWRAP>n/a</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=LWR&image=14266"> 1 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWR14266RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWR14266RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR14266RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWR14266RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR14266HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWR14266HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>18115</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1982-09-26</TD><TD NOWRAP>10:48:16</TD><TD NOWRAP>39.601</TD><TD NOWRAP>60</TD><TD NOWRAP>n/a</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=SWP&image=18115"> 3 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP18115RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP18115RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP18115RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP18115RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP18115HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP18115HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWR</TD><TD NOWRAP>14267</TD><TD NOWRAP>High</TD><TD NOWRAP>Small</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1982-09-26</TD><TD NOWRAP>10:52:59</TD><TD NOWRAP>34.690</TD><TD NOWRAP>60</TD><TD NOWRAP>n/a</TD>
+<TD><A HREF="/cgi-ines/resolve?bib=y&cam=LWR&image=14267"> 1 </A></TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWR14267RS.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWR14267RS.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR14267RS.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWR14267RS" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWR14267HS.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWR14267HS" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>40847</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-02-09</TD><TD NOWRAP>23:24:30</TD><TD NOWRAP>39.601</TD><TD NOWRAP>23</TD><TD NOWRAP>n/a</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP40847RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP40847RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP40847RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP40847RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP40847HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP40847HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21429</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>07:08:57</TD><TD NOWRAP>14.623</TD><TD NOWRAP>26</TD><TD NOWRAP>n/a</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21429RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21429RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21429RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21429RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21429HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21429HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42634</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>07:12:34</TD><TD NOWRAP>29.771</TD><TD NOWRAP>26</TD><TD NOWRAP>X02</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42634RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42634RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42634RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42634RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42634HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42634HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21431</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>09:31:48</TD><TD NOWRAP>14.623</TD><TD NOWRAP>26</TD><TD NOWRAP>n/a</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21431RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21431RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21431RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21431RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21431HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21431HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42636</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>09:36:25</TD><TD NOWRAP>29.771</TD><TD NOWRAP>26</TD><TD NOWRAP>X02</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42636RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42636RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42636RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42636RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42636HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42636HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21433</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>11:56:35</TD><TD NOWRAP>14.623</TD><TD NOWRAP>26</TD><TD NOWRAP>n/a</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21433RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21433RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21433RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21433RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21433HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21433HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42638</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>12:01:09</TD><TD NOWRAP>29.771</TD><TD NOWRAP>26</TD><TD NOWRAP>X02</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42638RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42638RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42638RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42638RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42638HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42638HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21435</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>14:51:25</TD><TD NOWRAP>14.623</TD><TD NOWRAP>20</TD><TD NOWRAP>500</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21435RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21435RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21435RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21435RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21435HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21435HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42640</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>14:55:31</TD><TD NOWRAP>24.856</TD><TD NOWRAP>20</TD><TD NOWRAP>500</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42640RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42640RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42640RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42640RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42640HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42640HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42642</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>17:33:17</TD><TD NOWRAP>24.856</TD><TD NOWRAP>20</TD><TD NOWRAP>500</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42642RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42642RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42642RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42642RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42642HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42642HL" /></label></TD></TR>
+
+<TR BGCOLOR=#F6F8BC>
+<TH><A HREF="/ines/OutForm.html#camera">Camera</A></TH>
+<TH><A HREF="/ines/OutForm.html#image">Image</A></TH>
+<TH><A HREF="/ines/OutForm.html#disp">Disp</A></TH>
+<TH><A HREF="/ines/OutForm.html#aperture">Aper</A></TH>
+<TH><A HREF="/ines/OutForm.html#object">Object</A></TH>
+<TH><A HREF="/ines/OutForm.html#ora">RA(1950)</A></TH>
+<TH><A HREF="/ines/OutForm.html#odec">Dec(1950)</A></TH>
+<TH><A HREF="/ines/OutForm.html#obsdate">ObsDate</A></TH>
+<TH><A HREF="/ines/OutForm.html#obstime">ObsTime</A></TH>
+<TH><A HREF="/ines/OutForm.html#exptime">ExpTime</A></TH>
+<TH><A HREF="/ines/OutForm.html#class">Class</A></TH>
+<TH><A HREF="/ines/OutForm.html#ecc">ECC</A></TH>
+<TH><A HREF="/ines/OutForm.html#pubs">Pubs</A></TH>
+<TH><A HREF="/ines/OutForm.html#plot">Plot</A></TH>
+<TH><A HREF="/ines/OutForm.html#header">Header</A></TH>
+<TH><A HREF="/ines/Retrieve.html#single">Fetch</A></TH>
+<TH><A HREF="/ines/Retrieve.html#multiple">Mark</A></TH>
+<TH><A HREF="/ines/Retrieve.html#single">Fetch</A></TH>
+<TH><A HREF="/ines/Retrieve.html#multiple">Mark</A></TH></TR>
+
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21437</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>17:37:07</TD><TD NOWRAP>14.623</TD><TD NOWRAP>20</TD><TD NOWRAP>500</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21437RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21437RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21437RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21437RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21437HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21437HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42644</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>20:12:06</TD><TD NOWRAP>24.856</TD><TD NOWRAP>20</TD><TD NOWRAP>500</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42644RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42644RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42644RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42644RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42644HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42644HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21439</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>20:15:06</TD><TD NOWRAP>14.623</TD><TD NOWRAP>26</TD><TD NOWRAP>n/a</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21439RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21439RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21439RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21439RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21439HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21439HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42646</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>23:20:44</TD><TD NOWRAP>24.856</TD><TD NOWRAP>26</TD><TD NOWRAP>X02</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42646RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42646RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42646RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42646RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42646HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42646HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21441</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-07</TD><TD NOWRAP>23:25:53</TD><TD NOWRAP>14.623</TD><TD NOWRAP>26</TD><TD NOWRAP>n/a</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21441RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21441RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21441RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21441RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21441HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21441HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42648</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>02:00:45</TD><TD NOWRAP>21.579</TD><TD NOWRAP>26</TD><TD NOWRAP>502</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42648RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42648RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42648RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42648RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42648HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42648HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21443</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>02:06:01</TD><TD NOWRAP>14.623</TD><TD NOWRAP>26</TD><TD NOWRAP>n/a</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21443RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21443RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21443RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21443RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21443HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21443HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42650</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>04:35:34</TD><TD NOWRAP>21.579</TD><TD NOWRAP>26</TD><TD NOWRAP>502</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42650RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42650RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42650RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42650RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42650HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42650HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21445</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>04:41:17</TD><TD NOWRAP>14.623</TD><TD NOWRAP>26</TD><TD NOWRAP>n/a</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21445RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21445RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21445RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21445RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21445HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21445HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42652</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>07:07:27</TD><TD NOWRAP>21.579</TD><TD NOWRAP>26</TD><TD NOWRAP>502</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42652RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42652RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42652RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42652RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42652HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42652HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21447</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>07:12:47</TD><TD NOWRAP>14.623</TD><TD NOWRAP>26</TD><TD NOWRAP>n/a</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21447RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21447RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21447RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21447RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21447HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21447HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42654</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>09:49:57</TD><TD NOWRAP>21.579</TD><TD NOWRAP>26</TD><TD NOWRAP>502</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42654RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42654RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42654RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42654RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42654HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42654HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21449</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>09:55:31</TD><TD NOWRAP>14.623</TD><TD NOWRAP>26</TD><TD NOWRAP>n/a</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21449RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21449RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21449RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21449RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21449HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21449HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42656</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>12:22:04</TD><TD NOWRAP>21.579</TD><TD NOWRAP>26</TD><TD NOWRAP>502</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42656RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42656RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42656RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42656RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42656HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42656HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21451</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>12:27:16</TD><TD NOWRAP>14.623</TD><TD NOWRAP>20</TD><TD NOWRAP>500</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21451RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21451RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21451RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21451RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21451HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21451HL" /></label></TD></TR>
+
+<TR BGCOLOR=#F6F8BC>
+<TH><A HREF="/ines/OutForm.html#camera">Camera</A></TH>
+<TH><A HREF="/ines/OutForm.html#image">Image</A></TH>
+<TH><A HREF="/ines/OutForm.html#disp">Disp</A></TH>
+<TH><A HREF="/ines/OutForm.html#aperture">Aper</A></TH>
+<TH><A HREF="/ines/OutForm.html#object">Object</A></TH>
+<TH><A HREF="/ines/OutForm.html#ora">RA(1950)</A></TH>
+<TH><A HREF="/ines/OutForm.html#odec">Dec(1950)</A></TH>
+<TH><A HREF="/ines/OutForm.html#obsdate">ObsDate</A></TH>
+<TH><A HREF="/ines/OutForm.html#obstime">ObsTime</A></TH>
+<TH><A HREF="/ines/OutForm.html#exptime">ExpTime</A></TH>
+<TH><A HREF="/ines/OutForm.html#class">Class</A></TH>
+<TH><A HREF="/ines/OutForm.html#ecc">ECC</A></TH>
+<TH><A HREF="/ines/OutForm.html#pubs">Pubs</A></TH>
+<TH><A HREF="/ines/OutForm.html#plot">Plot</A></TH>
+<TH><A HREF="/ines/OutForm.html#header">Header</A></TH>
+<TH><A HREF="/ines/Retrieve.html#single">Fetch</A></TH>
+<TH><A HREF="/ines/Retrieve.html#multiple">Mark</A></TH>
+<TH><A HREF="/ines/Retrieve.html#single">Fetch</A></TH>
+<TH><A HREF="/ines/Retrieve.html#multiple">Mark</A></TH></TR>
+
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42658</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>15:08:20</TD><TD NOWRAP>21.579</TD><TD NOWRAP>20</TD><TD NOWRAP>500</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42658RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42658RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42658RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42658RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42658HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42658HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21453</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>15:12:16</TD><TD NOWRAP>14.623</TD><TD NOWRAP>20</TD><TD NOWRAP>500</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21453RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21453RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21453RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21453RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21453HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21453HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42660</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>17:32:34</TD><TD NOWRAP>21.579</TD><TD NOWRAP>20</TD><TD NOWRAP>500</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42660RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42660RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42660RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42660RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42660HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42660HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>LWP</TD><TD NOWRAP>21455</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>18:01:56</TD><TD NOWRAP>14.623</TD><TD NOWRAP>20</TD><TD NOWRAP>500</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=LWP21455RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?LWP21455RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21455RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="LWP21455RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=LWP21455HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="LWP21455HL" /></label></TD></TR>
+
+<tr align="center" valign="center">
+<TD NOWRAP>SWP</TD><TD NOWRAP>42662</TD><TD NOWRAP>High</TD><TD NOWRAP>Large</TD><TD NOWRAP>HD 37202 </TD><TD NOWRAP>05:34:39.3</TD><TD NOWRAP>+21:06:50</TD><TD NOWRAP>1991-10-08</TD><TD NOWRAP>20:54:10</TD><TD NOWRAP>19.531</TD><TD NOWRAP>26</TD><TD NOWRAP>502</TD><TD>n/a</TD>
+<TD><A HREF="/ines/jsp/plotspectra.jsp?mainserver=sdc.laeff.esa.es&filename=SWP42662RL.FITS">Rebin</A></TD>
+<TD><A HREF="/cgi-ines/FITS_HDU?SWP42662RL.FITS">Rebin</A></TD>
+<TD><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42662RL.FITS">Rebin</A></TD>
+<TD>&nbsp;<label><input type="checkbox" name="fileRebin" value="SWP42662RL" /></label></TD>
+<TD bgcolor="#e7e7e7"><A HREF="/ines/jsp/SingleDownload.jsp?filename=SWP42662HL.FITS&source=PC">High</A></TD>
+<TD bgcolor="#e7e7e7">&nbsp;<label><input type="checkbox" name="fileHigh" value="SWP42662HL" /></label></TD></TR>
+
+</table>
+
+<div><input type="hidden" name=".cgifields" value="fileRebin"  /><input type="hidden" name=".cgifields" value="markRebin"  /><input type="hidden" name=".cgifields" value="markSILO"  /><input type="hidden" name=".cgifields" value="markLow"  /><input type="hidden" name=".cgifields" value="fileSILO"  /><input type="hidden" name=".cgifields" value="fileLow"  /><input type="hidden" name=".cgifields" value="markHigh"  /><input type="hidden" name=".cgifields" value="fileHigh"  /></div></form>
+
+<TABLE CELLPADDING=2 CELLSPACING=2 BORDER=0><TR>
+<TD><A HREF="#top"><IMG SRC="/ines/images/ToTop.gif" BORDER=0></A><BR>&nbsp;</TD>
+<TD><form method="post" action="/cgi-ines/IUEdbsMY" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="object" value="zet tau"  />
+<input type="submit" name=".submit" value="Previous Page" /></form></TD><TD><form method="post" action="/cgi-ines/IUEdbsMY" enctype="application/x-www-form-urlencoded">
+<input type="submit" name=".submit" value="Query Form" /></form></TD><TD><form method="post" action="/cgi-ines/IUEdbsMY" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="object" value="zet tau"  />
+<input type="submit" name=".submit" value="Next Page" /></form></TD><TD><A HREF="/ines/OutForm.html">Form Help</A> |<BR>&nbsp;</TD><TD><A HREF="/ines/Retrieve.html">Data Retrieval Help</A><BR>&nbsp;</TD></TR></TABLE>
+
+<!-- *** PAGE BOTTOM *** -->
+<P><HR>
+<P><A HREF="/ines/">Home</A> |
+<A HREF="mailto:esm@cab.inta-csic.es">HelpDesk</A> |
+<A HREF="/ines/Overview.html">Overview</A> |
+<A HREF="http://www.laeff.cab.inta-csic.es/">LAEFF</A>
+<P><ADDRESS>
+<A HREF="/ines/Version.html">Version 3.0</A> - June 2000
+</ADDRESS>
+
+</body>
+</html>
